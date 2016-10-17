@@ -1,6 +1,6 @@
 <template id="timeCounter">
   <div>
-    <p>{{ remainTime }} 秒</p>
+    <p>{{ restTime }} 秒</p>
   </div>
 </template>
 
@@ -8,16 +8,16 @@
   export default{
     data(){
       return{
-
+        restTime:0
       }
     },
     props:['remainTime'],
     mounted:function(){
+      this.restTime = this.remainTime
       var self = this
-      console.log(this.remainTime)
       var timeHandler = setInterval(function(){
-        if(self.remainTime>0){
-          self.remainTime--
+        if(self.restTime>0){
+          self.restTime--
         }else{
           clearInterval(timeHandler)
           self.$emit('timeout')

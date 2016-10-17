@@ -116,11 +116,11 @@
     },
     methods:{
       changeStat: function(){
-        window.location.href='/draw'
+        this.$store.commit('showDraw')
         this.readyStat = !this.readyStat
       },
       goHome: function(){
-        window.location.href='/'
+        this.$store.commit('showHome')
       }
     },
     components:{

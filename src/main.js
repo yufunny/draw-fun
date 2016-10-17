@@ -1,41 +1,32 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from "vue-router"
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
 
 Vue.config.debug = true
 
-Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(Vuex)
 
-import home from './components/home/main.vue'
-import wait from './components/wait/main.vue'
-import draw from './components/draw/main.vue'
-
-const router = new VueRouter({
-  mode: 'history',
-  base: __dirname,
-  routes: [
-    {
-      path: '/',
-      component: home
+const store = new Vuex.Store({
+  state:{
+    currentShow : 'home',
+  },
+  mutations:{
+    showHome(state){
+      state.currentShow = 'home'
     },
-    {
-      path: '/wait',
-      component: wait
+    showWait(state){
+      state.currentShow = 'wait'
     },
-    {
-      path: '/draw',
-      component: draw
-    },
-    
-  ]
-
+    showDraw(state){
+      state.currentShow = 'draw'
+    }
+  }
 })
 
-
 new Vue({
-  router: router,
   el: '#app',
+  store,
   render: h => h(App)
 })

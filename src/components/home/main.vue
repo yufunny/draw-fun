@@ -18,7 +18,7 @@
     },
     methods:{
       entryRoom: function(){
-        window.location.href="/wait"
+        this.$store.commit('showWait')
       }
     }
   }

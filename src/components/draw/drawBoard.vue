@@ -1,6 +1,6 @@
 <template id="drawBorad">
   <div>
-    <canvas id="canvas" width="480" height="480" @touchstart="drawBegin" @mousedown="drawBegin" @touchmove="drawing"></canvas>
+    <canvas id="canvas" width="720" height="480" @touchstart="drawBegin" @mousedown="drawBegin" @touchmove="drawing"></canvas>
   </div>
 </template>
 
@@ -41,19 +41,17 @@ class Draw {
 
         this.cxt.beginPath()
         if(e.type == 'touchstart'){
-          this.cxt.moveTo(
-              e.touches[0].clientX - this.stage_info.left,
-              e.touches[0].clientY - this.stage_info.top
-          )
+          var points = this.transPoint(e.touches[0].clientX,e.touches[0].clientY)
+          console.log(points)
         }else{
-          this.cxt.moveTo(
-              e.clientX - this.stage_info.left,
-              e.clientY - this.stage_info.top
-          )
+          var points = this.transPoint(e.clientX,e.clientY)
         }
+        this.cxt.moveTo(
+          points.x,points.y
+        )
 
-        this.path.beginX = e.clientX - this.stage_info.left
-        this.path.beginY = e.clientY - this.stage_info.top
+        this.path.beginX = points.x
+        this.path.beginY = points.y
 
         document.onmousemove = () => {
             this.drawing(event)
@@ -62,19 +60,16 @@ class Draw {
     }
     drawing(e) {
         if(e.type == 'touchmove'){
-          this.cxt.lineTo(
-            e.touches[0].clientX - this.stage_info.left,
-            e.touches[0].clientY - this.stage_info.top
-          )
+          var points = this.transPoint(e.touches[0].clientX,e.touches[0].clientY)
         }
         else{
-          this.cxt.lineTo(
-              e.clientX - this.stage_info.left,
-              e.clientY - this.stage_info.top
-          )
+          var points = this.transPoint(e.clientX,e.clientY)
         }
-        this.path.endX = e.clientX - this.stage_info.left
-        this.path.endY = e.clientY - this.stage_info.top
+        this.cxt.lineTo(
+          points.x,points.y
+        )
+        this.path.endX = points.x
+        this.path.endY = points.y
 
         // ws.send(this.path.beginX + '.' + this.path.beginY + '.' + this.path.endX + '.' + this.path.endY)
 
@@ -90,6 +85,15 @@ class Draw {
         //     this.cxt.clearRect(0, 0, 500, 500)
         //     // ws.send('clear')
         // }
+    }
+
+    transPoint(x,y){
+      var a = (x - this.stage_info.left) * this.canvas.width/this.canvas.offsetWidth
+      var b = (y - this.stage_info.top) * this.canvas.height/this.canvas.offsetHeight
+      return {
+        x:a,
+        y:b
+      }
     }
 }
 

@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <router-view class="view"></router-view>
+    <home v-if="showPage == 'home'"></home>
+    <wait v-if="showPage == 'wait'"></wait>
+    <draw v-if="showPage == 'draw'"></draw>
   </div>
 </template>
 
 <script>
+
+import home from './components/home/main.vue'
+import wait from './components/wait/main.vue'
+import draw from './components/draw/main.vue'
+
 export default {
   data () {
     return {
-      msg: 'Hello Vue!'
+    }
+  },
+  components:{
+    home,wait,draw
+  },
+  computed:{
+    showPage(){
+      return this.$store.state.currentShow
     }
   },
   mounted: function(){

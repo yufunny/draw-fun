@@ -104,7 +104,7 @@
     },
     methods:{
       goHome:function(){
-        window.location.href='/'
+        this.$store.commit('showHome')
       }
     },
     mounted: function(){
