@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="view">
     <home v-if="showPage == 'home'"></home>
     <wait v-if="showPage == 'wait'"></wait>
     <draw v-if="showPage == 'draw'"></draw>
