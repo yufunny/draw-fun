@@ -1,7 +1,7 @@
 <template id="inputBox">
   <div class="input-box">
-    <input type="text" name="content" placeholder="请输入消息">
-    <span>发送</span>
+    <input type="text" name="content" placeholder="请输入消息" v-model="message" @keyup.enter="addMessage">
+    <span @click="addMessage">发送</span>
   </div>
 </template>
 
@@ -9,7 +9,16 @@
   export default{
     data(){
       return {
-
+        message:''
+      }
+    },
+    methods:{
+      addMessage : function(){
+        this.$store.state.messages.push({
+          name: "我",
+          content: this.message,
+      })
+        this.message = ''
       }
     }
   }
@@ -30,6 +39,7 @@
     border:none;
     font-size: 16px;
     padding: 8px 0;
+    outline: none;
   }
 
   .input-box span{

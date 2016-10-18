@@ -11,9 +11,11 @@
 
       }
     },
-    props:[
-      'messages'
-    ]
+    computed:{
+      messages(){
+        return this.$store.state.messages
+      }
+    }
   }
 </script>
 

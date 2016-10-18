@@ -15,7 +15,7 @@
       <draw-board></draw-board>
       <button class="tool-btn" @click="showPannel">工具箱</button>
     <div class="message-box" id="messageBox">
-      <message-box :messages="messages"></message-box>
+      <message-box></message-box>
     </div>
     <div>
       <input-box class="input-box"></input-box>
@@ -37,68 +37,6 @@
         currentUser: '静香',
         nextUser: '小叮当',
         drawTips: '一个字',
-        messages:[
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-        ]
       }
     },
     components:{

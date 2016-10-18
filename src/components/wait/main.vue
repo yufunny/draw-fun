@@ -10,7 +10,7 @@
       <button class="ready-btn" @click="changeStat">{{ readyStat ? "取消" : "准备"}}</button>
     </div>
     <div class="message-box">
-      <message-box :messages="messages"></message-box>
+      <message-box></message-box>
     </div>
     <div>
       <input-box class="input-box"></input-box>
@@ -49,69 +49,7 @@
           },
         ],
         roomId:1001,
-        readyStat:false,
-        messages:[
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-          {
-            name: "大雄",
-            content: "23333",
-          },
-          {
-            name: "大雄",
-            content: "hahahha",
-          },
-          {
-            name: "我",
-            content: "你在说什么？",
-          },
-          {
-            name: "大雄",
-            content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-          },
-          {
-            name: "我",
-            content: "MDZZ",
-          },
-        ]
+        readyStat:false
       }
     },
     methods:{
