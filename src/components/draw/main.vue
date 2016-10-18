@@ -1,5 +1,5 @@
 <template id="draw">
-  <div>
+  <div id="drawPage">
     <div class="backbtn" @click="goHome"></div>
     <div class="head-info">
       <div class="user-queue">
@@ -13,13 +13,14 @@
       </div>
     </div>
       <draw-board></draw-board>
-
+      <button class="tool-btn" @click="showPannel">工具箱</button>
     <div class="message-box" id="messageBox">
       <message-box :messages="messages"></message-box>
     </div>
     <div>
       <input-box class="input-box"></input-box>
     </div>
+    <tool-box></tool-box>
   </div>
 </template>
 
@@ -28,6 +29,7 @@
   import drawBoard from './drawBoard.vue'
   import messageBox from '../common/messageBox.vue'
   import inputBox from '../common/inputBox.vue'
+  import toolBox from './toolBox.vue'
   export default{
     data(){
       return{
@@ -100,12 +102,15 @@
       }
     },
     components:{
-      timeCounter,drawBoard,messageBox,inputBox
+      timeCounter,drawBoard,messageBox,inputBox,toolBox
     },
     methods:{
       goHome:function(){
         this.$store.commit('showHome')
-      }
+      },
+    showPannel:function(){
+      this.$store.state.showPannel=true
+    }
     },
     mounted: function(){
       var msgBox = document.getElementById("messageBox")
@@ -116,7 +121,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .head-info {
     background: #39f;
     color: white;
@@ -134,7 +139,7 @@
     text-align: center;
   }
 
-  .backbtn{
+  #drawPage .backbtn{
     left: 24px;
     top: 20px;
   }
@@ -155,22 +160,46 @@
     margin: 0;
   }
 
-  .message-box >div{
+  #drawPage .message-box >div{
     top: 400px;
   }
-@media (max-width: 400px){
-  .message-box >div{
-    top: 400px;
+
+  canvas{
+    width: 100%;
+    height: 320px;
+    border: none;
+  }
+
+  .tool-btn{
+    margin-top: -30px;
+    position: fixed;
+    z-index: 9;
+    height: 30px;
+    border: 1px solid #39f;
+    border-radius: 2px;
+    color:#39f;
+    background: transparent;
+    right: 0;
+    outline: none;
+  }
+
+</style>
+
+<style>
+@media (max-height: 500px){
+  #drawPage .message-box >div{
+    top: 315px;
+  }
+  canvas{
+    height: 240px;
   }
 }
-@media (max-width: 360px){
-  .message-box >div{
-    top: 400px;
+@media (min-height: 640px){
+  #drawPage .message-box >div{
+    top: 435px;
   }
-}
-@media (max-width: 320px){
-  .message-box >div{
-    top: 400px;
+  canvas{
+    height: 360px;
   }
 }
 </style>

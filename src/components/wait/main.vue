@@ -194,6 +194,8 @@
     bottom: 33px;
     overflow-y: auto;
     max-width: 480px;
+    background-color: #f6f6f6;
+    font-size: 14px;
   }
   .message-box p{
     margin:4px 16px;

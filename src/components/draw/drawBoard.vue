@@ -42,7 +42,6 @@ class Draw {
         this.cxt.beginPath()
         if(e.type == 'touchstart'){
           var points = this.transPoint(e.touches[0].clientX,e.touches[0].clientY)
-          console.log(points)
         }else{
           var points = this.transPoint(e.clientX,e.clientY)
         }
@@ -132,9 +131,4 @@ export default {
 </script>
 
 <style>
-  canvas{
-    width: 100%;
-    height: 320px;
-    border: none;
-  }
 </style>

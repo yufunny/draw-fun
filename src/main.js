@@ -11,6 +11,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state:{
     currentShow : 'home',
+    showPannel:false
   },
   mutations:{
     showHome(state){
