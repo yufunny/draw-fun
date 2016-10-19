@@ -12,15 +12,15 @@
         <time-counter :remainTime="60" class="time-counter"></time-counter>
       </div>
     </div>
-      <draw-board></draw-board>
-      <button class="tool-btn" @click="showPannel">工具箱</button>
+      <draw-board :color="color" :line="line" :clear="clear"></draw-board>
+      <button class="tool-btn" @click.stop="showPannel" @mousemove.stop=""  @mousedown.stop="">工具箱</button>
     <div class="message-box" id="messageBox">
       <message-box></message-box>
     </div>
     <div>
       <input-box class="input-box"></input-box>
     </div>
-    <tool-box></tool-box>
+    <tool-box @changeColor="changeColor" @clearCanvas="clearCanvas" @changeLineWidth="changeLineWidth"></tool-box>
   </div>
 </template>
 
@@ -37,6 +37,9 @@
         currentUser: '静香',
         nextUser: '小叮当',
         drawTips: '一个字',
+        color:"#000",
+        clear: 1,
+        line: 1,
       }
     },
     components:{
@@ -46,9 +49,18 @@
       goHome:function(){
         this.$store.commit('showHome')
       },
-    showPannel:function(){
-      this.$store.state.showPannel=true
-    }
+      showPannel:function(){
+        this.$store.state.showPannel=true
+      },
+      changeColor:function(color){
+        this.color = color
+      },
+      clearCanvas:function(){
+        this.clear++
+      },
+      changeLineWidth:function(line){
+        this.line = line
+      },
     },
     mounted: function(){
       var msgBox = document.getElementById("messageBox")
@@ -106,6 +118,7 @@
     width: 100%;
     height: 320px;
     border: none;
+    background-color: white;
   }
 
   .tool-btn{

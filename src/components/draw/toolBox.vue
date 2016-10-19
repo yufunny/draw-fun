@@ -1,5 +1,5 @@
 <template id="toolBox">
-  <div class="tool-pannel" v-show="isShow">
+  <div class="tool-pannel" v-show="isShow"  @mousemove.stop=""  @mousedown.stop="">
     <div class="tool-box">      
       <div class="actions">
         <button class="action-item" @click="clearCanvas">清空</button>
@@ -7,12 +7,12 @@
         <hr>
       <div class="pencil">
         <p>画笔</p>
-        <div class="pencil-item" :class="selectedTool == 'eraser' ? 'on' : ''" @click="selectedTool='eraser'">橡</div>
+        <div class="line-item" v-for="line in lineWidths" @click="changeLineWidth(line)" :class="'line-width-'+line"><div></div></div>
       </div>
         <hr>
       <div class="colors">
         <p>颜色</p>
-        <div class="color-item" v-for="color in colors" :style="{backgroundColor: color}" @click="changeColor"></div>
+        <div class="color-item" v-for="color in colors" :style="{backgroundColor: color}" @click="changeColor(color)"></div>
       </div>
       <div class="close-box">
         <button class="close-btn" @click="closePannel">关闭</button>
@@ -29,6 +29,9 @@
         colors:[
           "#f00","#ffa500","#ff0","#0f0","#00f","#60c","#000"
         ],
+        lineWidths:[
+          0,1,5,10
+        ],
       }
     },
     props:["show"],
@@ -41,8 +44,11 @@
       clearCanvas:function(){
         this.$emit("clearCanvas")
       },
-      changeColor:function(e,color){
+      changeColor:function(color){
         this.$emit("changeColor",color)
+      },
+      changeLineWidth:function(line){
+        this.$emit("changeLineWidth",line)
       },
       closePannel:function(){
         this.$store.state.showPannel=false
@@ -90,7 +96,45 @@
     color:#39f;
     text-align: center;
     margin-left: 10px;
-
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 24px;
+  }
+  .line-item{
+    width: 24px;
+    height: 24px;
+    border: 1px solid #39f;
+    color:#39f;
+    text-align: center;
+    margin-left: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 24px;
+  }
+  .line-item > div{
+    background-color: #000;
+    border-radius: 50%;
+    margin:auto;
+  }
+  .line-width-0 > div{
+    width: 0;
+    height: 0;
+    margin-top: 10px;
+  }
+  .line-width-1 > div{
+    width: 4px;
+    height: 4px;
+    margin-top: 10px;
+  }
+  .line-width-5 > div{
+    width: 8px;
+    height: 8px;
+    margin-top: 8px;
+  }
+  .line-width-10 > div{
+    width: 12px;
+    height: 12px;
+    margin-top: 6px;
   }
   .close-box{
     width: 100%;

@@ -1,6 +1,6 @@
 <template id="drawBorad">
   <div>
-    <canvas id="canvas" width="720" height="480" @touchstart="drawBegin" @mousedown="drawBegin" @touchmove="drawing"></canvas>
+    <canvas id="canvas" width="720" height="480" @touchstart.self="drawBegin" @mousedown.self="drawBegin" @touchmove.self="drawing"></canvas>
   </div>
 </template>
 
@@ -13,6 +13,8 @@ class Draw {
         this.el = el
         this.canvas = document.getElementById(this.el)
         this.cxt = this.canvas.getContext('2d')
+        this.cxt.strokeStyle = "#000"
+        this.cxt.lineWidth = 1
         this.stage_info = canvas.getBoundingClientRect()
         this.path = {
             beginX: 0,
@@ -23,12 +25,6 @@ class Draw {
     }
 
     init() {
-        // this.canvas.onmousedown = () => {
-        //     this.drawBegin(event)
-        // }
-        // this.canvas.touchstart = () => {
-        //     this.drawBegin(event)
-        // }
         this.canvas.onmouseup = () => {
             this.drawEnd()
             // ws.send('stop')
@@ -37,7 +33,6 @@ class Draw {
     }
     drawBegin(e) {
         window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty()
-        this.cxt.strokeStyle = "#000"
 
         this.cxt.beginPath()
         if(e.type == 'touchstart'){
@@ -79,11 +74,12 @@ class Draw {
     }
     clearCanvas() {
 
-            this.cxt.clearRect(0, 0, 500, 500)
-        // btn.onclick = () => {
-        //     this.cxt.clearRect(0, 0, 500, 500)
-        //     // ws.send('clear')
-        // }
+            this.cxt.clearRect(0, 0, this.canvas.width, this.canvas.height)
+            // ws.send('clear')
+    }
+
+    changeColor(val){
+        this.cxt.strokeStyle = val
     }
 
     transPoint(x,y){
@@ -99,9 +95,13 @@ class Draw {
 export default {
     data(){
       return {
-        canvas : new Object()
+        canvas : new Object(),
+        lastColor: "#000"
       }
     },
+    props:[
+        "color","clear","line"
+    ],
     methods:{
       drawBegin: function(e){
         this.canvas.drawBegin(e)
@@ -126,6 +126,25 @@ export default {
         //         document.getElementById('keyword').innerHTML = msg.data.split(':')[1] :
         //         false
         // }
+    },
+    watch:{
+        color(val){
+            this.canvas.changeColor(val)
+            this.lastColor=val
+        },
+        clear(){
+            this.canvas.clearCanvas()
+        },
+        line(val){
+            console.log(val)
+            if(val == 0){
+                this.canvas.changeColor("#fff")
+                this.canvas.cxt.lineWidth = 15
+            }else{
+                this.canvas.changeColor(this.lastColor)
+                this.canvas.cxt.lineWidth = val
+            }
+        }
     }
 }
 </script>
