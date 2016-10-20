@@ -67,6 +67,13 @@
     left: 0;
     background: hsla(0,0%,100%,.9);
     overflow: hidden;
+    -moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
   }
 
   .tool-box{

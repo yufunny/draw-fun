@@ -14,7 +14,7 @@
     </div>
       <draw-board :color="color" :line="line" :clear="clear"></draw-board>
       <button class="tool-btn" @click.stop="showPannel" @mousemove.stop=""  @mousedown.stop="">工具箱</button>
-    <div class="message-box" id="messageBox">
+    <div class="message-box">
       <message-box></message-box>
     </div>
     <div>
@@ -61,12 +61,6 @@
       changeLineWidth:function(line){
         this.line = line
       },
-    },
-    mounted: function(){
-      var msgBox = document.getElementById("messageBox")
-      msgBox.ontouchmove=function(e){
-        e.stopPropagation();
-      }
     }
   }
 </script>

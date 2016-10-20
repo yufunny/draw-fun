@@ -14,11 +14,21 @@
     },
     methods:{
       addMessage : function(){
+        if(this.message == ""){
+          return;
+        }
         this.$store.state.messages.push({
           name: "我",
           content: this.message,
       })
         this.message = ''
+      }
+    },
+    watch:{
+      message(){
+        if(this.message.length>48){
+          this.message = this.message.substr(0,48)
+        }
       }
     }
   }
