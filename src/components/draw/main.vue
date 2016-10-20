@@ -122,7 +122,7 @@
   }
 
   .tool-btn{
-    margin-top: -30px;
+    margin-top: -32px;
     position: fixed;
     z-index: 9;
     height: 30px;
@@ -151,6 +151,14 @@
   }
   canvas{
     height: 360px;
+  }
+}
+
+@media(min-width: 480px){
+  .tool-btn{
+    width:64px;
+    margin-left:410px;
+    right:auto;
   }
 }
 </style>
