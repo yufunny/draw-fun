@@ -23,6 +23,7 @@
       this.stage_info = this.el.getBoundingClientRect()
       var msgBox = this.el.parentNode
       msgBox.ontouchmove=function(e){
+        console.log(2333) 
         e.stopPropagation();
         if(e.touches[0].clientY<this.stage_info.top || e.touches[0].clientY>(this.stage_info.top+msgBox.offsetHeight)){
           e.preventDefault();
@@ -31,7 +32,6 @@
     },
     watch:{
       messages(val){
-        console.log(this.el) 
         this.$nextTick(function () {
           this.el.scrollTop = this.el.scrollHeight
         })

@@ -2,8 +2,8 @@
   <div>
     <h1>你画我猜</h1>
     <div class="entry-group">
-      <input placeholder="输入昵称">
-      <input placeholder="输入房间号">
+      <input placeholder="输入昵称" v-model="name" :class="{ require:needName }" @keyup="inputName" maxlength="6">
+      <input placeholder="输入房间号" v-model="roomid" :class="{ require:needRoom }" @keyup="inputRoom" maxlength="6">
       <button @click="entryRoom">进入</button> 
     </div>        
   </div>
@@ -13,14 +13,32 @@
   export default{
     data(){
       return {
-
+        name:'',
+        roomid: '',
+        needName: false,
+        needRoom: false,
       }
     },
     methods:{
       entryRoom: function(){
+        if (this.roomid == ''){
+          this.needRoom = true
+        }
+        if(this.name == ''){
+          this.needName = true
+        }
+        if(this.needRoom || this.needName){
+          return
+        }
         this.$store.commit('showWait')
+      },
+      inputName:function(){
+        this.needName = false
+      },
+      inputRoom:function(){
+        this.needRoom = false
       }
-    }
+    },
   }
 
 </script>
@@ -29,6 +47,10 @@
   h1{
     text-align: center;
     margin-top: 100px;
+  }
+
+  .entry-group .require{
+    border: 1px solid red;
   }
 
   .entry-group{
@@ -62,4 +84,5 @@
     margin-top: 12px;
     outline: none;
   }
+
 </style>

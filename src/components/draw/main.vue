@@ -95,7 +95,7 @@
   }
 
   .time-counter{
-    position: fixed;
+    position: absolute;
     right: 1em;
     top:48px;
     margin: 0;

@@ -94,6 +94,7 @@
     border: 1px solid #39f;
     color:#39f;
     border-radius: 2px;
+    font-size: 1em;
     outline:none;
   }
   .pencil-item{
@@ -161,4 +162,14 @@
   hr{
     margin-top: 1em;
   }
+
+@media (min-width: 480px){
+    .tool-pannel{
+      /*position: absolute;*/
+      left: 50%;
+      margin-left: -240px;
+      width: 480px;
+      /*border:1px solid gray;*/
+    }
+}
 </style>
