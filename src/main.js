@@ -13,66 +13,6 @@ const store = new Vuex.Store({
     currentShow : 'home',
     showPannel:false,
     messages:[
-      {
-        name: "大雄",
-        content: "23333",
-      },
-      {
-        name: "大雄",
-        content: "hahahha",
-      },
-      {
-        name: "我",
-        content: "你在说什么？",
-      },
-      {
-        name: "大雄",
-        content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-      },
-      {
-        name: "我",
-        content: "MDZZ",
-      },
-      {
-        name: "大雄",
-        content: "23333",
-      },
-      {
-        name: "大雄",
-        content: "hahahha",
-      },
-      {
-        name: "我",
-        content: "你在说什么？",
-      },
-      {
-        name: "大雄",
-        content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-      },
-      {
-        name: "我",
-        content: "MDZZ",
-      },
-      {
-        name: "大雄",
-        content: "23333",
-      },
-      {
-        name: "大雄",
-        content: "hahahha",
-      },
-      {
-        name: "我",
-        content: "你在说什么？",
-      },
-      {
-        name: "大雄",
-        content: "好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦好好玩哦",
-      },
-      {
-        name: "我",
-        content: "MDZZ",
-      },
     ]
   },
   mutations:{
