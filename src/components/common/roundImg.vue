@@ -1,6 +1,7 @@
 <template id="round-img">
   <div>
     <img :src="src" class="round-img">
+    <div class="user-status"></div>
   </div>
 </template>
 
@@ -28,5 +29,17 @@
     -moz-box-shadow:0 0 8px rgba(255, 255, 204,.5);
     -webkit-box-shadow:0 0 8px rgba(255, 255, 204,3);
     -o-box-shadow:0 0 8px rgba(255, 255, 204,.5);
+  }
+
+  .user-status{
+    width: 12px;
+    height: 12px;
+    background-color: lime;
+    border-radius: 50%;
+    position: relative;
+    left: 100%;
+    margin-left: -24%;
+    margin-top: -24%;
+    margin-bottom: 10%;
   }
 </style>
