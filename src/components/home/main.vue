@@ -30,7 +30,7 @@
         if(this.needRoom || this.needName){
           return
         }
-        this.$store.commit('showWait')
+        this.$store.commit('showWait',this.roomid)
       },
       inputName:function(){
         this.needName = false

@@ -1,7 +1,7 @@
 <template id="round-img">
   <div>
     <img :src="src" class="round-img">
-    <div class="user-status"></div>
+    <div class="user-status" :class="status"></div>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 
       }
     },
-    props:['src']
+    props:['src','status']
   }
 </script>
 
@@ -34,12 +34,17 @@
   .user-status{
     width: 12px;
     height: 12px;
-    background-color: lime;
     border-radius: 50%;
     position: relative;
     left: 100%;
     margin-left: -24%;
-    margin-top: -24%;
+    margin-top: -26%;
     margin-bottom: 10%;
+  }
+   .user-status.ready{
+    background-color: lime;
+  }
+  .user-status.wait{
+    background-color: #f93;
   }
 </style>

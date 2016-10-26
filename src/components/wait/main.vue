@@ -4,7 +4,7 @@
     <div class="user-list">
       <p class="room-id">房间号 ：{{ roomId }}</p>
       <div v-for="user in users" class="user-box">        
-        <round-img :src="user.avatar" width="80px"></round-img>
+        <round-img :src="user.avatar" width="80px" :status="user.status"></round-img>
         <p>{{ user.name }}</p>
       </div>
       <button class="ready-btn" @click="changeStat">{{ readyStat ? "取消" : "准备"}}</button>
@@ -31,25 +31,33 @@
             id: 1,
             name: "大雄",
             avatar: "/statics/images/avatar.png",
+            status: "ready",
           },
           {
             id: 2,
             name: "静香",
             avatar: "/statics/images/avatar.png",
+            status: "ready",
           },
           {
             id: 3,
             name: "小叮当",
             avatar: "/statics/images/avatar.png",
+            status: "wait",
           },
           {
             id: 3,
             name: "小夫",
             avatar: "/statics/images/avatar.png",
+            status: "wait",
           },
         ],
-        roomId:1001,
         readyStat:false
+      }
+    },
+    computed:{
+      roomId(){
+        return this.$store.state.roomId
       }
     },
     methods:{
