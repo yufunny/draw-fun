@@ -12,6 +12,7 @@ const store = new Vuex.Store({
   state:{
     currentShow : 'home',
     showPannel:false,
+    roomId: -1,
     messages:[
     ]
   },
@@ -19,7 +20,8 @@ const store = new Vuex.Store({
     showHome(state){
       state.currentShow = 'home'
     },
-    showWait(state){
+    showWait(state,roomId){
+      state.roomId = roomId
       state.currentShow = 'wait'
     },
     showDraw(state){
