@@ -26,38 +26,15 @@
   export default{
     data(){
       return {
-        users:[
-          {
-            id: 1,
-            name: "大雄",
-            avatar: "/statics/images/avatar.png",
-            status: "ready",
-          },
-          {
-            id: 2,
-            name: "静香",
-            avatar: "/statics/images/avatar.png",
-            status: "ready",
-          },
-          {
-            id: 3,
-            name: "小叮当",
-            avatar: "/statics/images/avatar.png",
-            status: "wait",
-          },
-          {
-            id: 3,
-            name: "小夫",
-            avatar: "/statics/images/avatar.png",
-            status: "wait",
-          },
-        ],
         readyStat:false
       }
     },
     computed:{
       roomId(){
         return this.$store.state.roomId
+      },
+      users(){
+        return this.$store.state.userList
       }
     },
     methods:{
