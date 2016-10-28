@@ -26,7 +26,7 @@
   export default{
     data(){
       return {
-        readyStat:false
+        // readyStat:false
       }
     },
     computed:{
@@ -35,12 +35,16 @@
       },
       users(){
         return this.$store.state.userList
+      },
+      readyStat(){
+        return this.$store.state.userList[this.$store.state.uid].status
       }
     },
     methods:{
       changeStat: function(){
-        this.$store.commit('showDraw')
+        // this.$store.commit('showDraw')
         this.readyStat = !this.readyStat
+        this.$store.state.uid = this.$store.state.uid == 0 ? 1 : 0
       },
       goHome: function(){
         this.$store.commit('showHome')

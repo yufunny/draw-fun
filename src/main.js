@@ -13,34 +13,31 @@ const store = new Vuex.Store({
     currentShow : 'home',
     showPannel:false,
     roomId: -1,
+    uid:1,
     messages:[
     ],
-    userList:[
-      {
-        id: 1,
+    userList:{
+      1:{
         name: "大雄",
         avatar: "/statics/images/avatar.png",
-        status: "ready",
+        status: 0,
       },
-      {
-        id: 2,
+      2:{
         name: "静香",
         avatar: "/statics/images/avatar.png",
-        status: "ready",
+        status: 0,
       },
-      {
-        id: 3,
+      3:{
         name: "小叮当",
         avatar: "/statics/images/avatar.png",
-        status: "wait",
+        status: 0,
       },
-      {
-        id: 3,
+      4:{
         name: "小夫",
         avatar: "/statics/images/avatar.png",
-        status: "wait",
+        status: 0,
       },
-    ],
+    },
   },
   mutations:{
     showHome(state){
@@ -49,6 +46,9 @@ const store = new Vuex.Store({
     showWait(state,roomId){
       state.roomId = roomId
       state.currentShow = 'wait'
+    },
+    setUid(state,uid){
+      state.uid = uid
     },
     showDraw(state){
       state.currentShow = 'draw'

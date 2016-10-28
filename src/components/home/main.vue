@@ -30,6 +30,7 @@
         if(this.needRoom || this.needName){
           return
         }
+        this.$store.commit('setUid',1)
         this.$store.commit('showWait',this.roomid)
       },
       inputName:function(){

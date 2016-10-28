@@ -1,7 +1,7 @@
 <template id="round-img">
   <div>
     <img :src="src" class="round-img">
-    <div class="user-status" :class="status"></div>
+    <div class="user-status" :class="status==1?'ready':'wait'"></div>
   </div>
 </template>
 
