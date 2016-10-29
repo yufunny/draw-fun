@@ -44,9 +44,8 @@
     },
     methods:{
       changeStat: function(){
-        // this.$store.commit('showDraw')
+        this.$store.commit('changeState')
         this.readyStat = !this.readyStat
-        this.$store.state.userList[this.$store.state.uid].status = this.$store.state.userList[this.$store.state.uid].status == 0 ? 1 : 0
       },
       goHome: function(){
         this.$store.commit('showHome')

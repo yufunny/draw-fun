@@ -52,6 +52,9 @@ const store = new Vuex.Store({
     },
     showDraw(state){
       state.currentShow = 'draw'
+    },
+    changeState(state){
+      state.userList[state.uid].status = state.userList[state.uid].status == 0 ? 1 : 0
     }
   }
 })
