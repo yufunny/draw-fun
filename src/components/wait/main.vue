@@ -37,6 +37,8 @@
         return this.$store.state.userList
       },
       readyStat(){
+        console.log(this.$store.state.userList)
+        console.log(this.$store.state.uid)
         return this.$store.state.userList[this.$store.state.uid].status
       }
     },
@@ -44,7 +46,7 @@
       changeStat: function(){
         // this.$store.commit('showDraw')
         this.readyStat = !this.readyStat
-        this.$store.state.uid = this.$store.state.uid == 0 ? 1 : 0
+        this.$store.state.userList[this.$store.state.uid].status = this.$store.state.userList[this.$store.state.uid].status == 0 ? 1 : 0
       },
       goHome: function(){
         this.$store.commit('showHome')
