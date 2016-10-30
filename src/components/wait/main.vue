@@ -37,8 +37,6 @@
         return this.$store.state.userList
       },
       readyStat(){
-        console.log(this.$store.state.userList)
-        console.log(this.$store.state.uid)
         return this.$store.state.userList[this.$store.state.uid].status
       }
     },
