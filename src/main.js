@@ -25,19 +25,22 @@ const store = new Vuex.Store({
       2:{
         name: "静香",
         avatar: "/statics/images/avatar.png",
-        status: 0,
+        status: 1,
       },
       3:{
         name: "小叮当",
         avatar: "/statics/images/avatar.png",
-        status: 0,
+        status: 1,
       },
       4:{
         name: "小夫",
         avatar: "/statics/images/avatar.png",
-        status: 0,
+        status: 1,
       },
     },
+    drawTips:'水果',
+    currentUser:'我',
+    nextUser:'静香',
   },
   mutations:{
     showHome(state){

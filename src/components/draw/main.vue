@@ -3,9 +3,9 @@
     <div class="backbtn" @click="goHome"></div>
     <div class="head-info">
       <div class="user-queue">
-        <span>{{ preUser }}</span>
-        <span>{{ currentUser }}</span>
-        <span>{{ nextUser }}</span> 
+        <!-- <span>{{ preUser }}</span> -->
+        <span class="current-user">{{ currentUser }} 正在画</span>
+        <span class="next-user">{{ nextUser }}</span> 
       </div>
       <div class="draw-info">
         <p>提示：{{ drawTips }}</p>
@@ -33,7 +33,7 @@
   export default{
     data(){
       return{
-        preUser:'大雄',
+        // preUser:'大雄',
         currentUser: '静香',
         nextUser: '小叮当',
         drawTips: '一个字',
@@ -44,6 +44,14 @@
     },
     components:{
       timeCounter,drawBoard,messageBox,inputBox,toolBox
+    },
+    computed:{
+      currentUser(){
+        return this.$store.state.currentUser
+      },
+      nextUser(){
+        return this.$store.state.nextUser
+      }
     },
     methods:{
       goHome:function(){
@@ -77,10 +85,18 @@
   }
   .user-queue span{
     margin-top: 1em;
-    display: inline-block;
-    width: 20%;
-    margin-left: 10%;
+    /*display: inline-block;*/
+  }
+
+  .current-user {
+    position: absolute;
+    width: 100%;
     text-align: center;
+  }
+  
+  .next-user{
+    position: absolute;
+    right: 2em;
   }
 
   #drawPage .backbtn{

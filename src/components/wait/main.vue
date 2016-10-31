@@ -34,6 +34,17 @@
         return this.$store.state.roomId
       },
       users(){
+        var allReady = true
+        var userList = this.$store.state.userList
+        for(var user in userList){
+          if(userList[user].status == 0){
+            allReady = false
+          }
+        }
+
+        if(allReady){
+          this.$store.commit('showDraw')
+        }
         return this.$store.state.userList
       },
       readyStat(){
@@ -43,7 +54,6 @@
     methods:{
       changeStat: function(){
         this.$store.commit('changeState')
-        this.readyStat = !this.readyStat
       },
       goHome: function(){
         this.$store.commit('showHome')
