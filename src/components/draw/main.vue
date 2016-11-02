@@ -9,7 +9,7 @@
       </div>
       <div class="draw-info">
         <p>提示：{{ drawTips }}</p>
-        <time-counter :remainTime="60" class="time-counter"></time-counter>
+        <time-counter :remainTime="10" class="time-counter" @timeout="showResult"></time-counter>
       </div>
     </div>
       <draw-board :color="color" :line="line" :clear="clear"></draw-board>
@@ -21,6 +21,7 @@
       <input-box class="input-box"></input-box>
     </div>
     <tool-box @changeColor="changeColor" @clearCanvas="clearCanvas" @changeLineWidth="changeLineWidth"></tool-box>
+    <result-box></result-box>
   </div>
 </template>
 
@@ -30,6 +31,7 @@
   import messageBox from '../common/messageBox.vue'
   import inputBox from '../common/inputBox.vue'
   import toolBox from './toolBox.vue'
+  import resultBox from './resultBox.vue'
   export default{
     data(){
       return{
@@ -43,7 +45,7 @@
       }
     },
     components:{
-      timeCounter,drawBoard,messageBox,inputBox,toolBox
+      timeCounter,drawBoard,messageBox,inputBox,toolBox,resultBox
     },
     computed:{
       currentUser(){
@@ -69,6 +71,11 @@
       changeLineWidth:function(line){
         this.line = line
       },
+      showResult:function(){
+        console.log(this.$store.state.showResult)
+        this.$store.state.showResult=true
+        console.log(this.$store.state.showResult)
+      }
     }
   }
 </script>

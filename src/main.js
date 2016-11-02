@@ -12,6 +12,7 @@ const store = new Vuex.Store({
   state:{
     currentShow : 'home',
     showPannel:false,
+    showResult:false,
     roomId: -1,
     uid:1,
     messages:[
