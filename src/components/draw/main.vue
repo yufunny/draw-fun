@@ -72,9 +72,11 @@
         this.line = line
       },
       showResult:function(){
-        console.log(this.$store.state.showResult)
         this.$store.state.showResult=true
-        console.log(this.$store.state.showResult)
+        self = this
+        setTimeout(function(){
+          self.$store.state.showResult=false
+        },3000)
       }
     }
   }
