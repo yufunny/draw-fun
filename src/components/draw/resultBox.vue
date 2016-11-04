@@ -44,6 +44,7 @@
     /*padding-top: 50%;*/
     margin-top: -150px;
     text-align: center;
+    position: relative;
   }
 
   .answer-text{

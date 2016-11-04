@@ -36,6 +36,7 @@ body {
   font-family: Helvetica, sans-serif;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 * {
   -moz-user-select: -moz-none;
