@@ -38,18 +38,6 @@ body {
   margin: 0;
   position: relative;
 }
-* {
-  -moz-user-select: -moz-none;
-  -moz-user-select: none;
-  -o-user-select:none;
-  -khtml-user-select:none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-  outline:none; 
-  -webkit-touch-callout:none;
-  -webkit-appearance:none;
-}
 .view{
   max-width: 480px;
   min-width: 320px;
