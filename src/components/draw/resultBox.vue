@@ -34,14 +34,12 @@
 
 <style>
   .result-pannel{
-    position: fixed;
     z-index: 11;
     border: 1px solid #39f;
     width: 80%;
     height: 200px;
     left: 10%;
     top:50%;
-    /*padding-top: 50%;*/
     margin-top: -150px;
     text-align: center;
     position: relative;
